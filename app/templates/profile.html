@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block main %}
+
+
+<div class = "profile">
+    <img src = "{{ url_for('static', filename = 'insert.jpg') }}" alt = "Profile Picture">
+    <h1>Sheri-lee Mills</h1>
+    <p>@millssherilee@gmail.com</p>
+    <p>Joined {{ date_joined }}</p>
+    <p>I am a woman who is currently learning web deisgn and development. Contact me in the email above to work on a fun project together!!</p>
+    <div class = "stats">
+        <span>20 Posts</span>
+        <span>100 Following</span>
+        <span>120 Followers</span>
+    </div>
+    <button>Follow</button>
+</div>
+
+{% endblock %}

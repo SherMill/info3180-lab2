@@ -1,3 +1,18 @@
-body {
-    padding-top: 5rem;
+.profile-container{
+    background-color: #8BC34A;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.profile-container img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.stats{
+    display: flex;
+    justify-content: space-around;
+    margin: 10px 0;
 }

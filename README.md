@@ -1,6 +1,8 @@
 # INFO3180 - Lab 2
 
-This is the starter code for Lab 2
+This is the forked code for Lab 2
+
+The instructions below were followed:
 
 Remember to always create a virtual environment and install the packages in your requirements file
 
