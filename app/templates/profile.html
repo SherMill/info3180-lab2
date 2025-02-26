@@ -1,19 +1,22 @@
 {% extends 'base.html' %}
 {% block main %}
-
-
-<div class = "profile">
-    <img src = "{{ url_for('static', filename = 'insert.jpg') }}" alt = "Profile Picture">
-    <h1>Sheri-lee Mills</h1>
-    <p>@millssherilee@gmail.com</p>
-    <p>Joined {{ date_joined }}</p>
-    <p>I am a woman who is currently learning web deisgn and development. Contact me in the email above to work on a fun project together!!</p>
-    <div class = "stats">
-        <span>20 Posts</span>
-        <span>100 Following</span>
-        <span>120 Followers</span>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}">
+<div class="profile-container">
+    <div class="profile-header">
+        <img src="{{ url_for('static', filename=user.image_url) }}" alt="Profile Image" class="profile-image">
+        <h1>{{ user.full_name }}</h1>
+        <p>{{ user.username }}</p>
+        <p>{{ user.location }}</p>
+        <p>Joined {{ formatted_date }}</p>
     </div>
-    <button>Follow</button>
+    <div class="profile-content">
+        <p class="bio">{{ user.bio }}</p>
+        <div class="stats">
+            <span>{{ user.posts }} Posts</span>
+            <span>{{ user.following }} Following</span>
+            <span>{{ user.followers }} Followers</span>
+        </div>
+        <button class="follow-button">Follow</button>
+    </div>
 </div>
-
 {% endblock %}

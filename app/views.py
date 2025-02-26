@@ -1,6 +1,6 @@
 from app import app
 from flask import render_template, request, redirect, url_for, flash
-import datetime
+from datetime import datetime
 
 ###
 # Routing for your application.
@@ -22,11 +22,33 @@ def about():
 # The functions below should be applicable to all Flask apps.
 ###
 
+@app.route('/profile')
+def profile():
+    """Render the profile page."""
+    user = {
+        'image_url': 'Me.png',  # Put image in the static folder
+        'full_name': 'Sheri-lee Mills',
+        'username': '@smiles',
+        'location': 'Portmore, Jamaica',
+        'date_joined': datetime(2025, 2, 26),  
+        'bio': 'I am who I am when I am and I am determined to do when I need to when I need to..',
+        'posts': 7,
+        'following': 250,
+        'followers': 1000
+    }
+    formatted_date = format_date_joined(user['date_joined'])
+    return render_template('profile.html', user=user, formatted_date=formatted_date)
+
+def format_date_joined(date):
+    """Format the date as Month, Year."""
+    return date.strftime("%B, %Y")
+
 @app.route('/<file_name>.txt')
 def send_text_file(file_name):
     """Send your static text file."""
     file_dot_text = file_name + '.txt'
     return app.send_static_file(file_dot_text)
+
 
 
 @app.after_request
@@ -41,20 +63,3 @@ def add_header(response):
     return response
 
 
-@app.errorhandler(404)
-def page_not_found(error):
-    """Custom 404 page."""
-    return render_template('404.html'), 404
-
-#New View Function and Route
-
-@app.route('/profile')
-def profile():
-    date_joined = datetime.date(2025, 2, 25)
-    formatted_date = format_date(date_joined)
-    return render_template('profile.html', date_joined = formatted_date)
-
-#Date formatting
-
-def format_date(date):
-    return date.strftime("%B, %Y")
