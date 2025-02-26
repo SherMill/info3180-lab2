@@ -24,17 +24,17 @@ def about():
 
 @app.route('/profile')
 def profile():
-    """Render the profile page."""
+    """Renders the profile page."""
     user = {
         'image_url': 'Me.png',  # Put image in the static folder
         'full_name': 'Sheri-lee Mills',
         'username': '@smiles',
         'location': 'Portmore, Jamaica',
         'date_joined': datetime(2025, 2, 26),  
-        'bio': 'I am who I am when I am and I am determined to do when I need to when I need to..',
-        'posts': 7,
-        'following': 250,
-        'followers': 1000
+        'bio': 'I will be who I need to be, throughout all adversies. Cause I will strive to be the best version of myself.',
+        'posts': 3,
+        'following': 141,
+        'followers': 5926
     }
     formatted_date = format_date_joined(user['date_joined'])
     return render_template('profile.html', user=user, formatted_date=formatted_date)

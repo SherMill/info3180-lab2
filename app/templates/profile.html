@@ -12,11 +12,22 @@
     <div class="profile-content">
         <p class="bio">{{ user.bio }}</p>
         <div class="stats">
-            <span>{{ user.posts }} Posts</span>
-            <span>{{ user.following }} Following</span>
-            <span>{{ user.followers }} Followers</span>
+            <div class="stat-item">
+                <span class="stat-number">{{ user.posts }}</span>
+                <span class="stat-label">Posts</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">{{ user.following }}</span>
+                <span class="stat-label">Following</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">{{ user.followers }}</span>
+                <span class="stat-label">Followers</span>
+            </div>
         </div>
-        <button class="follow-button">Follow</button>
+        <div class="follow-button-container">
+            <button class="follow-button">Follow</button>
+        </div>
     </div>
 </div>
 {% endblock %}
